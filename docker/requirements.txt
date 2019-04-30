@@ -3,3 +3,6 @@ pillow
 opencv-python
 InstagramApi
 python-instagram
+moviepy
+instapy
+instabot
