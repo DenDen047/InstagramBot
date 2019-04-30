@@ -1,3 +1,5 @@
 numpy
 pillow
 opencv-python
+InstagramApi
+python-instagram
