@@ -25,6 +25,9 @@ def main():
     user_info = bot.get_user_info(user_id)
     print(user_info['biography'])
 
+    # download pic
+    bot.download_photo(
+        "123", filename=os.path.join(DATA_DIR, "somefile.jpg"))
 
 
 if __name__ == '__main__':
