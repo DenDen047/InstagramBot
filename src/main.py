@@ -7,7 +7,8 @@ import json
 from instabot import Bot
 
 
-DATA_DIR = "../data"
+DATA_DIR = "/data"
+LOG_DIR = "/log"
 
 
 def main():
@@ -17,8 +18,8 @@ def main():
         username = data['username']
         password = data['password']
 
-
-    bot = Bot()
+    # Login
+    bot = Bot(base_path=LOG_DIR)
     bot.login(username=username, password=password)
     user_id = bot.get_user_id_from_username("lego")
     user_info = bot.get_user_info(user_id)
