@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: instagrambot:latest
+    volumes:
+      - type: bind
+        source: ../src
+        target: /workdir
+      # - type: bind
+      #   source: ${MI_DATA_PATH}
+      #   target: /data
+    working_dir: /workdir
+    command: python main.py
