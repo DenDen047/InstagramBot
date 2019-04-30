@@ -4,9 +4,10 @@ import re
 import glob
 import json
 
-from instapy import InstaPy
-from instapy import smart_run
-from instapy import set_workspace
+from instabot import Bot
+
+
+DATA_DIR = "../data"
 
 
 def main():
@@ -16,22 +17,12 @@ def main():
         username = data['username']
         password = data['password']
 
-    # set workspace folder at desired location (default is at your home folder)
-    set_workspace(path=None)
 
-    # get an InstaPy session!
-    session = InstaPy(
-        username=username,
-        password=password
-    )
-
-    with smart_run(session):
-        """ Activity flow """
-        # general settings
-        session.set_dont_include(["friend1", "friend2", "friend3"])
-
-        # activity
-        session.like_by_tags(["natgeo"], amount=10)
+    bot = Bot()
+    bot.login(username=username, password=password)
+    user_id = bot.get_user_id_from_username("lego")
+    user_info = bot.get_user_info(user_id)
+    print(user_info['biography'])
 
 
 
