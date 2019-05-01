@@ -32,9 +32,10 @@ def main():
     #     "123", filename=os.path.join(DATA_DIR, "somefile"))
 
     # upload photo
-    bot.upload_photo(
-        os.path.join(DATA_DIR, "test.png.CONVERTED.jpg"),
+    result = bot.upload_photo(
+        os.path.join(DATA_DIR, "test2.jpg"),
         caption="#test")
+    print(result)
 
 
 if __name__ == '__main__':
