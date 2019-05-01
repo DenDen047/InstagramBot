@@ -10,8 +10,14 @@ services:
       - type: bind
         source: ../src
         target: /workdir
-      # - type: bind
-      #   source: ${MI_DATA_PATH}
-      #   target: /data
+      - type: bind
+        source: ../log
+        target: /log
+      - type: bind
+        source: ../data
+        target: /data
+      - type: bind
+        source: ../configs
+        target: /configs
     working_dir: /workdir
     command: python main.py
