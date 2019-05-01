@@ -56,7 +56,6 @@ def main():
     result = bot.upload_photo(
         dummy_file,
         caption=caption)
-    print(result)
 
 
 if __name__ == '__main__':
