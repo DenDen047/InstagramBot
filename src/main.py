@@ -23,15 +23,14 @@ def main():
     bot.login(username=username, password=password)
 
     # 他人の画像をダウンロード
-    user_id = bot.get_user_id_from_username("daisuke_clover")
     media_ids = bot.get_user_medias(
         user_id="daisuke_clover",
         filtration=None,
         is_comment=None
     )
-    print(media_ids)
+    media_id = media_ids[0]
 
-    # 借用することをコメントs
+    # 借用することをコメント
 
     # download photo
     # bot.download_photo(
