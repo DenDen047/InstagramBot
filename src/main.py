@@ -28,13 +28,13 @@ def main():
         filtration=None,
         is_comment=None
     )
-    media_id = media_ids[0]
-
-    # 借用することをコメント
+    media_id = media_ids[0]x
 
     # download photo
-    # bot.download_photo(
-    #     "123", filename=os.path.join(DATA_DIR, "somefile"))
+    bot.download_photo(
+        media_id,
+        filename=os.path.join(DATA_DIR, "dummy")
+    )
 
     # upload photo
     # result = bot.upload_photo(
