@@ -23,18 +23,28 @@ def main():
     bot.login(username=username, password=password)
 
     # 他人の画像をダウンロード
+    target_user_id = "daisuke_clover"
     media_ids = bot.get_user_medias(
-        user_id="daisuke_clover",
+        user_id=target_user_id,
         filtration=None,
         is_comment=None
     )
-    media_id = media_ids[0]x
+    media_id = media_ids[0]
 
     # download photo
+    dummy_file = os.path.join(DATA_DIR, "dummy")
     bot.download_photo(
         media_id,
-        filename=os.path.join(DATA_DIR, "dummy")
+        filename=dummy_file
     )
+    dummy_file += '.jpg'
+
+    # アップロードの準備
+    ## キャプション準備
+    tags = ["#tokyo", "#awesomeplaces"]
+    caption = "どこだか分かる？\n\n"
+    caption += 'Credit: @{}\n\n'.format(target_user_id)
+    caption += ' '.join(tags)
 
     # upload photo
     # result = bot.upload_photo(
