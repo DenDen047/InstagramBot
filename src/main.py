@@ -9,6 +9,7 @@ from instabot import Bot
 
 DATA_DIR = "/data"
 LOG_DIR = "/log"
+CONFIG_DIR = "/configs"
 
 
 def main():
@@ -19,7 +20,10 @@ def main():
         password = data['password']
 
     # Login
-    bot = Bot(base_path=LOG_DIR)
+    bot = Bot(
+        base_path=LOG_DIR,
+        comments_file=os.path.join(CONFIG_DIR, 'comments.txt')
+    )
     bot.login(username=username, password=password)
 
     # 他人の画像をダウンロード
@@ -38,6 +42,9 @@ def main():
         filename=dummy_file
     )
     dummy_file += '.jpg'
+
+    # 引用する旨を伝える
+    bot.comment_medias([media_id])
 
     # キャプション準備
     tags = ["#tokyo", "#awesomeplaces"]

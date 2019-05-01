@@ -16,5 +16,8 @@ services:
       - type: bind
         source: ../data
         target: /data
+      - type: bind
+        source: ../configs
+        target: /configs
     working_dir: /workdir
     command: python main.py
