@@ -39,18 +39,17 @@ def main():
     )
     dummy_file += '.jpg'
 
-    # アップロードの準備
-    ## キャプション準備
+    # キャプション準備
     tags = ["#tokyo", "#awesomeplaces"]
     caption = "どこだか分かる？\n\n"
     caption += 'Credit: @{}\n\n'.format(target_user_id)
     caption += ' '.join(tags)
 
     # upload photo
-    # result = bot.upload_photo(
-    #     os.path.join(DATA_DIR, "test2.jpg"),
-    #     caption="Credit: {}\n#tokyo")
-    # print(result)
+    result = bot.upload_photo(
+        dummy_file,
+        caption=caption)
+    print(result)
 
 
 if __name__ == '__main__':
