@@ -21,13 +21,20 @@ def main():
     # Login
     bot = Bot(base_path=LOG_DIR)
     bot.login(username=username, password=password)
-    user_id = bot.get_user_id_from_username("lego")
-    user_info = bot.get_user_info(user_id)
-    print(user_info['biography'])
 
-    # download pic
-    bot.download_photo(
-        "123", filename=os.path.join(DATA_DIR, "somefile.jpg"))
+    # アカウント情報を取得
+    # user_id = bot.get_user_id_from_username("lego")
+    # user_info = bot.get_user_info(user_id)
+    # print(user_info['biography'])
+
+    # download photo
+    # bot.download_photo(
+    #     "123", filename=os.path.join(DATA_DIR, "somefile"))
+
+    # upload photo
+    bot.upload_photo(
+        os.path.join(DATA_DIR, "test.png.CONVERTED.jpg"),
+        caption="#test")
 
 
 if __name__ == '__main__':
