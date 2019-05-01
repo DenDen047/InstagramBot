@@ -22,20 +22,26 @@ def main():
     bot = Bot(base_path=LOG_DIR)
     bot.login(username=username, password=password)
 
-    # アカウント情報を取得
-    # user_id = bot.get_user_id_from_username("lego")
-    # user_info = bot.get_user_info(user_id)
-    # print(user_info['biography'])
+    # 他人の画像をダウンロード
+    user_id = bot.get_user_id_from_username("daisuke_clover")
+    media_ids = bot.get_user_medias(
+        user_id="daisuke_clover",
+        filtration=None,
+        is_comment=None
+    )
+    print(media_ids)
+
+    # 借用することをコメントs
 
     # download photo
     # bot.download_photo(
     #     "123", filename=os.path.join(DATA_DIR, "somefile"))
 
     # upload photo
-    result = bot.upload_photo(
-        os.path.join(DATA_DIR, "test2.jpg"),
-        caption="#test")
-    print(result)
+    # result = bot.upload_photo(
+    #     os.path.join(DATA_DIR, "test2.jpg"),
+    #     caption="Credit: {}\n#tokyo")
+    # print(result)
 
 
 if __name__ == '__main__':
