@@ -19,6 +19,13 @@ def main():
         username = data['username']
         password = data['password']
 
+    # アカウント情報をロード
+    accounts_file = os.path.join(CONFIG_DIR, 'accounts.txt')
+    with open(accounts_file, 'r') as f:
+        account_list = f.readlines()
+    print(account_list)
+    sys.exit(0)
+
     # Login
     bot = Bot(
         base_path=LOG_DIR,
