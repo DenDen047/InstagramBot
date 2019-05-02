@@ -3,6 +3,7 @@ import sys
 import re
 import glob
 import json
+import random
 
 from instabot import Bot
 
@@ -21,10 +22,11 @@ def main():
 
     # アカウント情報をロード
     accounts_file = os.path.join(CONFIG_DIR, 'accounts.txt')
+    account_list = []
     with open(accounts_file, 'r') as f:
-        account_list = f.readlines()
-    print(account_list)
-    sys.exit(0)
+        for i in f:
+            account_list.append(i.rstrip('\n'))
+    username = random.choice(account_list)
 
     # Login
     bot = Bot(
