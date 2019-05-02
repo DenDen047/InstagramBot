@@ -26,7 +26,7 @@ def main():
     with open(accounts_file, 'r') as f:
         for i in f:
             account_list.append(i.rstrip('\n'))
-    username = random.choice(account_list)
+    target_user_id = random.choice(account_list)
 
     # Login
     bot = Bot(
@@ -36,7 +36,6 @@ def main():
     bot.login(username=username, password=password)
 
     # 他人の画像をダウンロード
-    target_user_id = "daisuke_clover"
     media_ids = bot.get_user_medias(
         user_id=target_user_id,
         filtration=None,
@@ -62,6 +61,7 @@ def main():
     caption += ' '.join(tags)
 
     # upload photo
+    dummy_file = glob.glob(os.path.join(DATA_DIR, "*.jpg"))[0]
     result = bot.upload_photo(
         dummy_file,
         caption=caption)
