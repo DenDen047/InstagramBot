@@ -20,13 +20,22 @@ def main():
         username = data['username']
         password = data['password']
 
-    # アカウント情報をロード
+    # 参考アカウントをロード
     accounts_file = os.path.join(CONFIG_DIR, 'accounts.txt')
     account_list = []
     with open(accounts_file, 'r') as f:
         for i in f:
             account_list.append(i.rstrip('\n'))
     target_user_id = random.choice(account_list)
+
+    # タグ情報をロード
+    num_tag = 30
+    tags_file = os.path.join(CONFIG_DIR, 'tags.txt')
+    tag_list = []
+    with open(tags_file, 'r') as f:
+        for i in f:
+            tag_list.append(i.rstrip('\n'))
+    tags = random.sample(tag_list, num_tag) # タグをランダムに選択
 
     # Login
     bot = Bot(
@@ -54,10 +63,10 @@ def main():
     bot.comment_medias([media_id])
 
     # キャプション準備
-    tags = ["#tokyo", "#awesomeplaces"]
     caption = "Who can name this spot?\nどこだか分かる？\n\n"
     caption += 'Credit: @{}\n\n'.format(target_user_id)
     caption += ' '.join(tags)
+    print(caption)
 
     # upload photo
     dummy_files = glob.glob(os.path.join(DATA_DIR, "*.jpg"))
