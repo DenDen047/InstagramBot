@@ -39,7 +39,7 @@ def main():
     with open(captions_file, 'r') as f:
         for i in f:
             caption_list.append(i.rstrip('\n'))
-    caption = random.sample(caption_list, num_tag) # タグをランダムに選択
+    caption = random.choice(caption_list)
 
     # タグ情報をロード
     num_tag = 30
