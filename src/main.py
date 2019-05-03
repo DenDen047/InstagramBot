@@ -4,6 +4,7 @@ import re
 import glob
 import json
 import random
+from datetime import datetime
 
 from instabot import Bot
 
@@ -11,6 +12,9 @@ from instabot import Bot
 DATA_DIR = "/data"
 LOG_DIR = "/log"
 CONFIG_DIR = "/configs"
+
+# 初期設定
+random.seed(datetime.now())
 
 
 def main():
@@ -27,6 +31,7 @@ def main():
         for i in f:
             account_list.append(i.rstrip('\n'))
     target_user_id = random.choice(account_list)
+    # print(target_user_id)
 
     # タグ情報をロード
     num_tag = 30
@@ -49,7 +54,7 @@ def main():
         user_id=target_user_id,
         filtration=False
     )
-    media_id = media_ids[0]
+    media_id = random.choice(media_ids)
     print('Media ID: {}'.format(media_id))
 
     # 画像をダウンロード
