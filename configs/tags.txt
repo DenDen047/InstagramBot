@@ -5,3 +5,4 @@
 #wonderful_places
 #earthhotspots
 #東京
+#カメラ
