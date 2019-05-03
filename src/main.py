@@ -36,8 +36,12 @@ def main():
     bot.login(username=username, password=password)
 
     # 他人の画像情報を取得
-    media_ids = bot.get_user_medias(user_id=target_user_id)
+    media_ids = bot.get_user_medias(
+        user_id=target_user_id,
+        filtration=False
+    )
     media_id = media_ids[0]
+    print('Media ID: {}'.format(media_id))
 
     # 画像をダウンロード
     dummy_file = os.path.join(DATA_DIR, "dummy")
@@ -51,7 +55,7 @@ def main():
 
     # キャプション準備
     tags = ["#tokyo", "#awesomeplaces"]
-    caption = "どこだか分かる？\n\n"
+    caption = "Who can name this spot?\nどこだか分かる？\n\n"
     caption += 'Credit: @{}\n\n'.format(target_user_id)
     caption += ' '.join(tags)
 
@@ -63,8 +67,12 @@ def main():
         dummy_file,
         caption=caption)
 
-    # # 不要な画像を削除
-
+    # 不要な画像を削除
+    for f in dummy_files:
+        os.remove(f)
+    files = glob.glob(os.path.join(DATA_DIR, "*.REMOVE"))
+    for f in files:
+        os.remove(f)
 
 if __name__ == '__main__':
     main()
