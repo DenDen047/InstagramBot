@@ -35,37 +35,33 @@ def main():
     )
     bot.login(username=username, password=password)
 
-    # # 他人の画像情報を取得
-    # media_ids = bot.get_user_medias(
-    #     user_id=target_user_id,
-    #     filtration=None,
-    #     is_comment=None
-    # )
-    # media_id = media_ids[0]
+    # 他人の画像情報を取得
+    media_ids = bot.get_user_medias(user_id=target_user_id)
+    media_id = media_ids[0]
 
-    # # 画像をダウンロード
-    # dummy_file = os.path.join(DATA_DIR, "dummy")
-    # bot.download_photo(
-    #     media_id,
-    #     filename=dummy_file
-    # )
+    # 画像をダウンロード
+    dummy_file = os.path.join(DATA_DIR, "dummy")
+    bot.download_photo(
+        media_id,
+        filename=dummy_file
+    )
 
-    # # 引用する旨を伝える
-    # bot.comment_medias([media_id])
+    # 引用する旨を伝える
+    bot.comment_medias([media_id])
 
-    # # キャプション準備
-    # tags = ["#tokyo", "#awesomeplaces"]
-    # caption = "どこだか分かる？\n\n"
-    # caption += 'Credit: @{}\n\n'.format(target_user_id)
-    # caption += ' '.join(tags)
+    # キャプション準備
+    tags = ["#tokyo", "#awesomeplaces"]
+    caption = "どこだか分かる？\n\n"
+    caption += 'Credit: @{}\n\n'.format(target_user_id)
+    caption += ' '.join(tags)
 
     # upload photo
     dummy_files = glob.glob(os.path.join(DATA_DIR, "*.jpg"))
     dummy_files.sort()
     dummy_file = dummy_files[0]
-    # result = bot.upload_photo(
-    #     dummy_file,
-    #     caption=caption)
+    result = bot.upload_photo(
+        dummy_file,
+        caption=caption)
 
     # # 不要な画像を削除
 
