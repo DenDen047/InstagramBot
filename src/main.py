@@ -31,7 +31,15 @@ def main():
         for i in f:
             account_list.append(i.rstrip('\n'))
     target_user_id = random.choice(account_list)
-    # print(target_user_id)
+
+    # キャプション情報をロード
+    num_tag = 30
+    captions_file = os.path.join(CONFIG_DIR, 'captions.txt')
+    caption_list = []
+    with open(captions_file, 'r') as f:
+        for i in f:
+            caption_list.append(i.rstrip('\n'))
+    caption = random.sample(caption_list, num_tag) # タグをランダムに選択
 
     # タグ情報をロード
     num_tag = 30
@@ -68,7 +76,7 @@ def main():
     bot.comment_medias([media_id])
 
     # キャプション準備
-    caption = "Who can name this spot?\nどこだか分かる？\n\n"
+    caption += "\n\n"
     caption += 'Credit: @{}\n\n'.format(target_user_id)
     caption += ' '.join(tags)
     print(caption)
