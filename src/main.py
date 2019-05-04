@@ -77,7 +77,6 @@ def main():
     caption += "\n\n"
     caption += 'Credit: @{}\n\n'.format(target_user_id)
     caption += ' '.join(tags)
-    print(caption)
 
     # upload photo
     dummy_files = glob.glob(os.path.join(DATA_DIR, "*.jpg"))
@@ -86,7 +85,7 @@ def main():
     result = bot.upload_photo(
         dummy_file,
         caption=caption)
-    print('result: {}'.format(result))
+    print('Upload: {}'.format(result))
 
     if result:
         # 引用する旨を伝える
