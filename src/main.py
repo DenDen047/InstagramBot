@@ -31,6 +31,7 @@ def main():
         for i in f:
             account_list.append(i.rstrip('\n'))
     target_user_id = random.choice(account_list)
+    print('User ID: @{}'.format(target_user_id))
 
     # キャプション情報をロード
     num_tag = 30
@@ -72,9 +73,6 @@ def main():
         filename=dummy_file
     )
 
-    # 引用する旨を伝える
-    bot.comment_medias([media_id])
-
     # キャプション準備
     caption += "\n\n"
     caption += 'Credit: @{}\n\n'.format(target_user_id)
@@ -88,13 +86,18 @@ def main():
     result = bot.upload_photo(
         dummy_file,
         caption=caption)
+    print('result: {}'.format(result))
 
-    # 不要な画像を削除
-    for f in dummy_files:
-        os.remove(f)
-    files = glob.glob(os.path.join(DATA_DIR, "*.REMOVE"))
-    for f in files:
-        os.remove(f)
+    if result:
+        # 引用する旨を伝える
+        bot.comment_medias([media_id])
+
+        # 不要な画像を削除
+        for f in dummy_files:
+            os.remove(f)
+        files = glob.glob(os.path.join(DATA_DIR, "*.REMOVE*"))
+        for f in files:
+            os.remove(f)
 
 if __name__ == '__main__':
     main()
