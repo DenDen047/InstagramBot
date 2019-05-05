@@ -70,7 +70,8 @@ def main():
     media_info = bot.get_media_info(media_id)
     caption_text = media_info[0]['caption']['text']
     ## キャプションから正規表現で引用元を特定
-
+    repatter = re.compile(pattern)
+    result = repatter.match(content)
     source_users = [target_user_id] # 引用元のuser id
 
     # 画像をダウンロード
