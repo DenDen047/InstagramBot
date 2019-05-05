@@ -91,12 +91,12 @@ def main():
         # 引用する旨を伝える
         bot.comment_medias([media_id])
 
-        # 不要な画像を削除
-        for f in dummy_files:
-            os.remove(f)
-        files = glob.glob(os.path.join(DATA_DIR, "*.REMOVE*"))
-        for f in files:
-            os.remove(f)
+    # 不要な画像を削除
+    for f in dummy_files:
+        os.remove(f)
+    files = glob.glob(os.path.join(DATA_DIR, "*.REMOVE*"))
+    for f in files:
+        os.remove(f)
 
 if __name__ == '__main__':
     main()
