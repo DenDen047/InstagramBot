@@ -65,6 +65,8 @@ def main():
     )
     media_id = random.choice(media_ids)
     print('Media ID: {}'.format(media_id))
+    ## 画像のリンク元を取得
+    source_users = [target_user_id] # 引用元のuser id
 
     # 画像をダウンロード
     dummy_file = os.path.join(DATA_DIR, "dummy")
@@ -75,7 +77,7 @@ def main():
 
     # キャプション準備
     caption += "\n\n"
-    caption += 'Credit: @{}\n\n'.format(target_user_id)
+    caption += 'Credit: @{}\n\n'.format('\@'.join(source_users))
     caption += ' '.join(tags)
 
     # upload photo
