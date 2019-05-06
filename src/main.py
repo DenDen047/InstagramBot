@@ -70,13 +70,11 @@ def main():
     media_info = bot.get_media_info(media_id)
     caption_text = media_info[0]['caption']['text']
     ## キャプションから正規表現で引用元を特定
-    pattern = "@(\w|\_|\.)+"
-    iterator = re.finditer(pattern, caption_text)
-    print('----')
-    for match in iterator:
-        print(match.group())
-    print('----')
     source_users = [target_user_id] # 引用元のuser id
+    pattern = "@(\w|\_|\.)+"    # instagramのユーザー名は英数字と . and _
+    iterator = re.finditer(pattern, caption_text)
+    for match in iterator:
+        source_users.append(match.group()[1:])   # @を除去
 
     # 画像をダウンロード
     dummy_file = os.path.join(DATA_DIR, str(media_id))
@@ -86,10 +84,11 @@ def main():
     )
 
     # キャプション準備
+    source_users = list(set(source_users))  # 重複除去
     caption += "\n\n"
-    caption += 'Credit: @{}\n\n'.format('\@'.join(source_users))
+    caption += 'Credit: @{}\n\n'.format('/@'.join(source_users))
     caption += ' '.join(tags)
-    # print(caption)
+    print(caption)
 
     # # upload photo
     # dummy_files = glob.glob(os.path.join(DATA_DIR, "*.jpg"))
