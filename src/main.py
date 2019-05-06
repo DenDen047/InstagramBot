@@ -70,12 +70,8 @@ def main():
     media_info = bot.get_media_info(media_id)
     caption_text = media_info[0]['caption']['text']
     ## キャプションから正規表現で引用元を特定
-    content = r'''hellow python,
-        enter,123
-        @hoge.hoge @hoge1
-        end'''
-    pattern = "@(\w|\_|\.)*"
-    iterator = re.finditer(pattern, content)
+    pattern = "@(\w|\_|\.)+"
+    iterator = re.finditer(pattern, caption_text)
     print('----')
     for match in iterator:
         print(match.group())
