@@ -64,7 +64,6 @@ def main():
         filtration=False
     )
     media_id = random.choice(media_ids)
-    media_id = 2034143614828840178
     print('Media ID: {}'.format(media_id))
     ## 画像のリンク元からキャプションを取得
     media_info = bot.get_media_info(media_id)
@@ -90,18 +89,18 @@ def main():
     caption += ' '.join(tags)
     print(caption)
 
-    # # upload photo
-    # dummy_files = glob.glob(os.path.join(DATA_DIR, "*.jpg"))
-    # dummy_files.sort()
-    # dummy_file = dummy_files[0]
-    # result = bot.upload_photo(
-    #     dummy_file,
-    #     caption=caption)
-    # print('Upload: {}'.format(result))
+    # upload photo
+    dummy_files = glob.glob(os.path.join(DATA_DIR, "*.jpg"))
+    dummy_files.sort()
+    dummy_file = dummy_files[0]
+    result = bot.upload_photo(
+        dummy_file,
+        caption=caption)
+    print('Upload: {}'.format(result))
 
-    # if result:
-    #     # 引用する旨を伝える
-    #     bot.comment_medias([media_id])
+    if result:
+        # 引用する旨を伝える
+        bot.comment_medias([media_id])
 
     # 不要な画像を削除
     for f in dummy_files:
