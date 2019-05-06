@@ -70,8 +70,16 @@ def main():
     media_info = bot.get_media_info(media_id)
     caption_text = media_info[0]['caption']['text']
     ## キャプションから正規表現で引用元を特定
-    repatter = re.compile(pattern)
-    result = repatter.match(content)
+    content = r'''hellow python,
+        enter,123
+        @hoge.hoge @hoge1
+        end'''
+    pattern = "@(\w|\_|\.)*"
+    iterator = re.finditer(pattern, content)
+    print('----')
+    for match in iterator:
+        print(match.group())
+    print('----')
     source_users = [target_user_id] # 引用元のuser id
 
     # 画像をダウンロード
@@ -85,7 +93,7 @@ def main():
     caption += "\n\n"
     caption += 'Credit: @{}\n\n'.format('\@'.join(source_users))
     caption += ' '.join(tags)
-    print(caption)
+    # print(caption)
 
     # # upload photo
     # dummy_files = glob.glob(os.path.join(DATA_DIR, "*.jpg"))
