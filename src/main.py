@@ -59,7 +59,7 @@ def main():
     bot.login(username=username, password=password)
 
     # 他人の画像情報を取得
-    media_ids = bot.get_user_medias(
+    media_ids = bot.get_total_user_medias(
         user_id=target_user_id,
         filtration=False
     )

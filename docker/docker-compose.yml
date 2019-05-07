@@ -1,7 +1,7 @@
 version: '3.2'
 
 services:
-  posting:
+  main:
     build:
       context: .
       dockerfile: Dockerfile
@@ -20,4 +20,4 @@ services:
         source: ../configs
         target: /configs
     working_dir: /workdir
-    command: python posting.py
+    command: python main.py
