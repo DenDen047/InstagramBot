@@ -59,10 +59,7 @@ def main():
     bot.login(username=username, password=password)
 
     # 他人の画像情報を取得
-    media_ids = bot.get_total_user_medias(
-        user_id=target_user_id,
-        filtration=False
-    )
+    media_ids = bot.get_total_user_medias(target_user_id)
     media_id = random.choice(media_ids)
     print('Media ID: {}'.format(media_id))
     ## 画像のリンク元からキャプションを取得
