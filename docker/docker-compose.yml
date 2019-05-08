@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: instagrambot:latest
+    image: denden047/instagrambot:latest
     volumes:
       - type: bind
         source: ../src
