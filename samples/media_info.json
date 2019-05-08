@@ -56,17 +56,24 @@
         'has_liked': False,
         'top_likers': [],
         'photo_of_you': False,
-        'usertags': {'in': [{'user': {'pk': 48622482,
-        'username': 'hideking38',
-        'full_name': 'Hideki',
-        'is_private': False,
-        'profile_pic_url': 'https://instagram.fmnl18-1.fna.fbcdn.net/vp/ac017e9d48dd223cc546fd5f4ef94f3a/5D704B08/t51.2885-19/s150x150/26863183_106755006809166_7907347654533709824_n.jpg?_nc_ht=instagram.fmnl18-1.fna.fbcdn.net',
-        'profile_pic_id': '1704183491368300612_48622482',
-        'is_verified': False},
-        'position': [0.1215952,
-        0.73191094],
-        'start_time_in_video_in_sec': None,
-        'duration_in_video_in_sec': None}]},
+        'usertags': {
+            'in': [
+                {
+                    'user': {
+                        'pk': 48622482,
+                        'username': 'hideking38',
+                        'full_name': 'Hideki',
+                        'is_private': False,
+                        'profile_pic_url': 'https://instagram.fmnl18-1.fna.fbcdn.net/vp/ac017e9d48dd223cc546fd5f4ef94f3a/5D704B08/t51.2885-19/s150x150/26863183_106755006809166_7907347654533709824_n.jpg?_nc_ht=instagram.fmnl18-1.fna.fbcdn.net',
+                        'profile_pic_id': '1704183491368300612_48622482',
+                        'is_verified': False
+                    },
+                    'position': [0.1215952, 0.73191094],
+                    'start_time_in_video_in_sec': None,
+                    'duration_in_video_in_sec': None
+                }
+            ]
+        },
         'caption': {
             'pk': 17846885575425316,
             'user_id': 1263819700,
