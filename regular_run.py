@@ -9,4 +9,4 @@ while True:
     except:
         print("Error.")
 
-    time.sleep(3600 * 1)
+    time.sleep(3600 * 1.5)
