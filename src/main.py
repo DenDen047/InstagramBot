@@ -4,7 +4,7 @@ import re
 import glob
 import json
 import random
-from datetime import datetime
+import time
 
 from instabot import Bot
 
@@ -14,7 +14,7 @@ LOG_DIR = "/log"
 CONFIG_DIR = "/configs"
 
 # 初期設定
-random.seed(datetime.now())
+random.seed(time.time())
 
 
 def main():
